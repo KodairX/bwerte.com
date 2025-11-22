@@ -6,66 +6,280 @@
 
     <!-- PRIMARY SEO -->
     <title>b:werte | Strategic Holdings & Global Ventures</title>
+    <meta name="description" content="b:werte is a private holding vehicle operating across industrial automation, Balkan logistics, automotive export, and human capital management.">
+    <meta name="keywords" content="Venture Capital, Industrial Automation, Albania Logistics, Automotive Export, Player Agency, Strategic Holdings, b:werte">
     <meta name="description" content="b:werte (bwerte) is a private holding vehicle operating across industrial automation, Balkan logistics, automotive export, and human capital management.">
     <!-- UPDATED KEYWORDS: Added variations so Google captures typos/spaces -->
     <meta name="keywords" content="bwerte, b werte, b:werte, b-werte, Venture Capital, Industrial Automation, Albania Logistics, Automotive Export, Player Agency, Strategic Holdings">
     <meta name="author" content="b:werte Holdings">
-    <!-- UPDATED: Added "Ventures" to title for immediate ranking signal -->
-    <title>b:werte Ventures | Strategic Holdings & Global Markets</title>
-    
-    <!-- UPDATED: Description now explicitly mentions "b:werte Ventures" -->
-    <meta name="description" content="b:werte Ventures (bwerte) is a private holding vehicle operating across industrial automation, Balkan logistics, automotive export, and human capital management.">
-    
-    <!-- UPDATED: Added the specific "ventures" variations first -->
-    <meta name="keywords" content="b werte ventures, bwerte ventures, b:werte ventures, bwerte, b werte, b:werte, b-werte, Venture Capital, Industrial Automation, Albania Logistics, Automotive Export, Player Agency">
-    <meta name="author" content="b:werte Ventures">
     <link rel="canonical" href="https://www.bwerte.com/">
 
     <!-- OPEN GRAPH / SOCIAL (How it looks on LinkedIn/WhatsApp) -->
-    <!-- OPEN GRAPH / SOCIAL -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.bwerte.com/">
     <meta property="og:title" content="b:werte | Exploring value in unlikely places.">
     <meta property="og:description" content="A multi-disciplinary holding vehicle operating across industrial, automotive, and human capital sectors.">
-    <meta property="og:title" content="b:werte Ventures | Exploring value in unlikely places.">
-    <meta property="og:description" content="A multi-disciplinary venture vehicle operating across industrial, automotive, and human capital sectors.">
     <meta property="og:image" content="https://your-domain.com/share-image.jpg">
 
     <!-- SCHEMA MARKUP (The Secret Weapon: Tells Google you are a real Organization) -->
-    <!-- SCHEMA MARKUP -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Corporation",
       "name": "b:werte Holdings",
       "alternateName": ["bwerte", "b werte", "b-werte", "be werte"],
-      "name": "b:werte Ventures",
-      "alternateName": ["bwerte ventures", "b werte ventures", "b:werte", "bwerte", "b-werte"],
       "url": "https://www.bwerte.com",
       "logo": "https://www.bwerte.com/logo.png",
       "description": "Strategic holding company with verticals in Industrial Machinery, Logistics, and Talent Management.",
-      "description": "Strategic venture and holding company with verticals in Industrial Machinery, Logistics, and Talent Management.",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Berlin",
-@@ -122,8 +126,9 @@
+        "addressCountry": "DE"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "",
+        "contactType": "customer service",
+        "email": "contact@bwerte.com"
+      }
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F5F5F2; /* Warmer, premium off-white */
+            color: #1A1A1A;
+        }
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Subtle fade-in animation for content */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-up {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+
+        /* Elegant underline effect */
+        .hover-underline-animation {
+            display: inline-block;
+            position: relative;
+        }
+        .hover-underline-animation::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: currentColor;
+            transform-origin: bottom right;
+            transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+        .hover-underline-animation:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+    </style>
+</head>
+<body class="antialiased flex flex-col min-h-screen selection:bg-gray-200 selection:text-black">
+
+    <!-- Navigation -->
+    <nav class="w-full px-6 md:px-12 py-6 flex justify-between items-center fixed top-0 z-50 bg-[#F5F5F2]/80 backdrop-blur-md border-b border-gray-200/50 transition-all duration-300">
+        <a href="#" class="text-xl md:text-2xl font-bold tracking-tighter hover:opacity-70 transition-opacity">b:werte</a>
+
+        <div class="hidden md:flex space-x-12 text-xs font-semibold tracking-[0.2em] uppercase text-gray-500">
+            <a href="#philosophy" class="hover:text-black transition-colors hover-underline-animation">Philosophy</a>
+            <a href="#ventures" class="hover:text-black transition-colors hover-underline-animation">Ventures</a>
+            <a href="#contact" class="hover:text-black transition-colors hover-underline-animation">Inquiry</a>
+        </div>
+
+        <button class="md:hidden group flex flex-col space-y-1.5 w-8" onclick="document.getElementById('mobile-menu').classList.remove('translate-x-full')">
+            <span class="block w-full h-0.5 bg-black group-hover:w-2/3 transition-all"></span>
+            <span class="block w-2/3 h-0.5 bg-black group-hover:w-full transition-all ml-auto"></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-[#F5F5F2] z-[60] flex flex-col justify-center items-center space-y-8 transform translate-x-full transition-transform duration-500 ease-in-out">
+        <a href="#philosophy" class="text-4xl serif italic hover:text-gray-500 transition-colors" onclick="document.getElementById('mobile-menu').classList.add('translate-x-full')">Philosophy</a>
+        <a href="#ventures" class="text-4xl serif italic hover:text-gray-500 transition-colors" onclick="document.getElementById('mobile-menu').classList.add('translate-x-full')">Ventures</a>
+        <a href="#contact" class="text-4xl serif italic hover:text-gray-500 transition-colors" onclick="document.getElementById('mobile-menu').classList.add('translate-x-full')">Contact</a>
+        <button class="absolute top-8 right-8 text-xs font-bold tracking-widest uppercase" onclick="document.getElementById('mobile-menu').classList.add('translate-x-full')">Close</button>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="flex-grow flex flex-col justify-center px-6 md:px-12 pt-40 pb-24 min-h-[85vh] border-b border-gray-300/50 relative overflow-hidden">
+        <!-- Decorative background element -->
         <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-b from-gray-200/30 to-transparent -z-10"></div>
 
         <div class="max-w-5xl mx-auto w-full animate-fade-up">
-            <!-- UPDATED: Changed tag to "Venture Vehicle" to reinforce keyword -->
             <div class="inline-block px-3 py-1 mb-8 border border-gray-300 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500">
                 Strategic Holding Vehicle
-                Strategic Venture Vehicle
             </div>
             <h1 class="text-5xl md:text-7xl lg:text-8xl font-medium leading-[0.95] tracking-tighter mb-10 text-[#111]">
                 Exploring value <br>
-@@ -277,19 +282,20 @@
+                <span class="serif italic text-gray-500 font-normal">in unlikely places.</span>
+            </h1>
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 border-t border-gray-300 pt-8 delay-100 animate-fade-up opacity-0 fill-mode-forwards">
+                <p class="text-lg md:text-xl font-light max-w-xl leading-relaxed text-gray-700">
+                    b:werte operates without borders, inquiring into complex markets - from industrial machinery to human capital. We act as a strategic interface for acquisition.
+                </p>
+                <div class="flex items-center space-x-4">
+                     <a href="#ventures" class="group flex items-center justify-center w-16 h-16 rounded-full border border-gray-300 hover:border-black hover:bg-black hover:text-white transition-all duration-300">
+                        <svg class="w-6 h-6 transform group-hover:rotate-90 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                     </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- The Philosophy -->
+    <section id="philosophy" class="px-6 md:px-12 py-32 bg-[#F5F5F2]">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-16">
+            <div class="md:col-span-4 relative">
+                <div class="sticky top-32">
+                    <h2 class="text-xs font-bold tracking-[0.25em] uppercase text-gray-400 mb-2">/ The Methodology</h2>
+                    <div class="h-px w-12 bg-black mt-4"></div>
+                </div>
+            </div>
+            <div class="md:col-span-8">
+                <p class="text-3xl md:text-5xl serif leading-[1.2] mb-12 text-[#111]">
+                    We are not a traditional operational company. We are an <span class="italic text-gray-500">interface</span> for opportunity.
+                </p>
+                <div class="grid md:grid-cols-2 gap-12 text-gray-600 text-base leading-relaxed font-light">
+                    <p>
+                        Whether it is sourcing advanced robotics, navigating Balkan logistics, or identifying premium consumer goods, b:werte acts as the bridge between inquiry and acquisition.
+                    </p>
+                    <p>
+                        Our structure allows us to pivot instantly between industries, bringing a rigorous, value-first methodology to every sector we touch.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ventures Grid (Re-styled) -->
+    <section id="ventures" class="bg-[#1A1A1A] text-[#F5F5F2] px-6 md:px-12 py-32">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-24 pb-6 border-b border-gray-700">
+                <div>
+                    <h2 class="text-4xl md:text-6xl font-medium tracking-tighter mb-2">Current Focus</h2>
+                    <p class="text-gray-400 serif italic text-xl">Strategic verticals & active inquiries.</p>
+                </div>
+                <div class="mt-8 md:mt-0 text-xs font-mono text-gray-500">
+                    // UPDATED: Q4 2024
+                </div>
+            </div>
+
+            <!-- Grid System -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-px gap-y-px bg-gray-800 border border-gray-800">
+
+                <!-- Card 1 -->
+                <div class="bg-[#1A1A1A] p-10 hover:bg-[#222] transition-colors duration-500 group min-h-[320px] flex flex-col justify-between">
+                    <div class="flex justify-between items-start">
+                        <span class="text-[10px] font-bold tracking-[0.2em] text-gray-500 group-hover:text-white transition-colors">01 / INDUSTRIAL</span>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl serif italic mb-4 text-gray-100">Heavy Machinery & Automation</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
+                            Sourcing and inquiring about industrial-grade assets. From manufacturing units to automated assembly lines.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-[#1A1A1A] p-10 hover:bg-[#222] transition-colors duration-500 group min-h-[320px] flex flex-col justify-between">
+                    <div class="flex justify-between items-start">
+                        <span class="text-[10px] font-bold tracking-[0.2em] text-gray-500 group-hover:text-white transition-colors">02 / LOGISTICS</span>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl serif italic mb-4 text-gray-100">UAV Systems & Balkan Strategy</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
+                            Exploring the frontier of unmanned aerial vehicles. Specific focus on regulatory environments in the Balkan airspace.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-[#1A1A1A] p-10 hover:bg-[#222] transition-colors duration-500 group min-h-[320px] flex flex-col justify-between">
+                    <div class="flex justify-between items-start">
+                        <span class="text-[10px] font-bold tracking-[0.2em] text-gray-500 group-hover:text-white transition-colors">03 / LIFE SCIENCES</span>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl serif italic mb-4 text-gray-100">Premium Wellness</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
+                            Analysis of high-purity botanical supplements. Partners who adhere to the highest standards of organic certification.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-[#1A1A1A] p-10 hover:bg-[#222] transition-colors duration-500 group min-h-[320px] flex flex-col justify-between">
+                    <div class="flex justify-between items-start">
+                        <span class="text-[10px] font-bold tracking-[0.2em] text-gray-500 group-hover:text-white transition-colors">04 / AUTOMOTIVE</span>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl serif italic mb-4 text-gray-100">Export & Trade</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
+                            Facilitating the movement of vehicles across borders. Sourcing specific models for export markets.
+                        </p>
+                    </div>
+                </div>
+
+                 <!-- Card 5 -->
+                 <div class="bg-[#1A1A1A] p-10 hover:bg-[#222] transition-colors duration-500 group md:col-span-2 min-h-[320px] flex flex-col justify-between">
+                    <div class="flex justify-between items-start">
+                        <span class="text-[10px] font-bold tracking-[0.2em] text-gray-500 group-hover:text-white transition-colors">05 / TALENT</span>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:items-end gap-8">
+                        <div class="flex-1">
+                            <h3 class="text-2xl serif italic mb-4 text-gray-100">Sports Intermediation</h3>
+                            <p class="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors max-w-md">
+                                Representing human potential. We act as intermediaries for professional athletes, facilitating transfers and managing career trajectories with a focus on long-term value.
+                            </p>
+                        </div>
+                        <div class="hidden md:block">
+                             <svg class="w-12 h-12 text-gray-700 group-hover:text-white transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="px-6 md:px-12 py-32 bg-[#F5F5F2] flex flex-col items-center justify-center min-h-[60vh]">
+        <div class="max-w-3xl text-center">
+             <div class="inline-block mb-6 text-gray-400">
+                <svg class="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+            </div>
+            <h2 class="text-4xl md:text-6xl font-medium tracking-tighter mb-8 text-[#111]">Start the conversation.</h2>
+            <p class="text-lg text-gray-600 mb-12 font-light">
+                Whether you are selling machinery, developing drone tech, or looking for player representation, we are open to the inquiry.
+            </p>
+            <a href="mailto:contact@bwerte.com" class="group relative inline-flex items-center justify-center px-8 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-all duration-200 bg-transparent border border-[#111] text-[#111] hover:bg-[#111] hover:text-white focus:outline-none overflow-hidden">
+                <span class="relative z-10">Get in touch</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="bg-[#F5F5F2] px-6 md:px-12 py-12 border-t border-gray-300/50">
         <div class="flex flex-col md:flex-row justify-between items-end">
             <div class="mb-8 md:mb-0">
                 <div class="text-lg font-bold tracking-tighter mb-2">b:werte</div>
-                <!-- UPDATED: "Ventures" added here to anchor the text content for Google -->
-                <div class="text-lg font-bold tracking-tighter mb-2">b:werte Ventures</div>
                 <div class="text-[10px] text-gray-400 uppercase tracking-widest">
                     &copy; 2024 Holdings.<br>
                     Berlin / Tirana / Global
@@ -79,7 +293,5 @@
         </div>
     </footer>
 
-</body>
-</html>
 </body>
 </html>
