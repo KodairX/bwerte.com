@@ -7,12 +7,21 @@
   <meta name="description" content="B:WERTE is a private venture group exploring opportunities across technology, mobility, manufacturing, consumer products and talent.">
   <style>
     :root {
-      --bg: #f7f7f8;
-      --text-main: #111111;
-      --text-muted: #5f6368;
-      --border-subtle: #e1e3e7;
-      --accent: #111111;
-      --max-width: 980px;
+      --bg: #050816;
+      --bg-soft: #0b0f1a;
+      --card: #0f172a;
+      --card-soft: #111827;
+      --border-subtle: rgba(148, 163, 184, 0.3);
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --text-soft: #6b7280;
+      --max-width: 1120px;
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --shadow-soft: 0 24px 80px rgba(15, 23, 42, 0.85);
+      --shadow-subtle: 0 16px 45px rgba(15, 23, 42, 0.65);
     }
 
     * {
@@ -28,7 +37,9 @@
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         Roboto, sans-serif;
-      background: #ffffff;
+      background:
+        radial-gradient(circle at top left, #172554 0, #020617 42%),
+        radial-gradient(circle at bottom right, #0f172a 0, #020617 48%);
       color: var(--text-main);
       -webkit-font-smoothing: antialiased;
     }
@@ -42,147 +53,401 @@
     .shell {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 32px 20px 64px;
+      padding: 28px 20px 52px;
     }
 
     header.site-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 0 32px;
-      border-bottom: 1px solid var(--border-subtle);
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.82);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      backdrop-filter: blur(16px);
+      position: sticky;
+      top: 16px;
+      z-index: 20;
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.8);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .wordmark {
       display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.88rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      font-weight: 600;
+      flex-direction: column;
+      gap: 2px;
     }
 
-    .wordmark span.symbol {
+    .brand-topline {
+      font-size: 0.72rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    .brand-main {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+
+    .brand-main span.symbol {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      border: 1px solid var(--text-main);
       font-size: 0.7rem;
-      font-weight: 600;
+      background: radial-gradient(circle at 30% 10%, #f9fafb 0, #0f172a 70%);
+      color: #020617;
     }
 
-    .nav-note {
+    .brand-main span.text {
+      color: #e5e7eb;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
       font-size: 0.8rem;
+    }
+
+    .nav-link {
+      text-decoration: none;
       text-transform: uppercase;
       letter-spacing: 0.16em;
+      color: var(--text-soft);
+      position: relative;
+      padding-bottom: 2px;
+      transition: color 0.18s ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.18s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--text-main);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-pill {
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.36);
+      font-size: 0.74rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
       color: var(--text-muted);
+      white-space: nowrap;
     }
 
     main {
       flex: 1;
     }
 
+    /* HERO SECTION */
+
     .hero {
-      padding: 40px 0 52px;
+      margin-top: 42px;
       display: grid;
-      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.6fr);
+      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.4fr);
       gap: 32px;
+      align-items: center;
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: 920px) {
       .hero {
         grid-template-columns: 1fr;
-        padding: 32px 0 40px;
+        margin-top: 32px;
       }
     }
 
+    .hero-left {
+      padding-right: 4px;
+    }
+
     .hero-kicker {
-      font-size: 0.82rem;
+      font-size: 0.76rem;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--text-muted);
+      letter-spacing: 0.22em;
+      color: var(--text-soft);
       margin-bottom: 12px;
     }
 
     .hero-title {
       font-size: clamp(2.3rem, 4vw, 3.1rem);
       line-height: 1.05;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
-    .hero-title span {
-      display: inline-block;
+    .hero-title span.highlight {
+      background: linear-gradient(120deg, #7dd3fc, #22c55e, #38bdf8);
+      -webkit-background-clip: text;
+      color: transparent;
     }
 
     .hero-body {
       font-size: 0.98rem;
-      line-height: 1.7;
+      line-height: 1.8;
       color: var(--text-muted);
-      max-width: 32rem;
+      max-width: 34rem;
     }
 
-    .hero-pill {
-      display: inline-flex;
+    .hero-tags {
+      display: flex;
       flex-wrap: wrap;
-      gap: 6px 10px;
-      margin-top: 12px;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-muted);
+      gap: 8px;
+      margin-top: 16px;
     }
 
-    .hero-pill span {
-      padding: 5px 10px;
+    .hero-tag {
+      padding: 6px 11px;
       border-radius: 999px;
-      border: 1px solid var(--border-subtle);
-      background: #fafafa;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.26), rgba(15, 23, 42, 0.6));
     }
 
-    .hero-aside {
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.7);
+      background: radial-gradient(circle at 0 0, #38bdf8, #0ea5e9);
+      color: #020617;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      box-shadow: 0 18px 50px rgba(56, 189, 248, 0.5);
+      transition: transform 0.14s ease, box-shadow 0.14s ease, background 0.18s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 60px rgba(56, 189, 248, 0.68);
+      background: radial-gradient(circle at 0 0, #7dd3fc, #22c55e);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      text-decoration: none;
+      background: rgba(15, 23, 42, 0.6);
+      transition: background 0.16s ease, border-color 0.16s ease, color 0.16s ease;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: rgba(148, 163, 184, 0.9);
+      color: var(--text-main);
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, #1f2937 0, #020617 60%);
+      border-radius: var(--radius-xl);
+      padding: 20px 20px 18px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.18), transparent 50%),
+        radial-gradient(circle at 100% 0, rgba(52, 211, 153, 0.12), transparent 50%);
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .hero-chip {
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    .hero-identity {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 10%, #f9fafb, #0f172a);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #020617;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.8);
+    }
+
+    .hero-identity-text {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      gap: 18px;
-      border-left: 1px solid var(--border-subtle);
-      padding-left: 24px;
+      gap: 1px;
     }
 
-    @media (max-width: 800px) {
-      .hero-aside {
-        border-left: none;
-        border-top: 1px solid var(--border-subtle);
-        padding-left: 0;
-        padding-top: 20px;
+    .hero-identity-main {
+      font-size: 0.9rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .hero-identity-sub {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    .hero-card-body {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .hero-metadata {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 520px) {
+      .hero-metadata {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
-    .aside-block {
-      font-size: 0.9rem;
-      color: var(--text-muted);
+    .hero-meta-item {
+      background: rgba(15, 23, 42, 0.8);
+      border-radius: 999px;
+      padding: 7px 10px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
     }
 
-    .aside-label {
-      font-size: 0.78rem;
-      letter-spacing: 0.16em;
+    .hero-meta-label {
       text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 6px;
+      letter-spacing: 0.16em;
+      font-size: 0.7rem;
+      color: var(--text-soft);
     }
 
-    .aside-main {
-      font-size: 0.96rem;
+    .hero-meta-value {
+      font-size: 0.82rem;
       color: var(--text-main);
-      line-height: 1.5;
     }
+
+    .hero-footnote {
+      font-size: 0.74rem;
+      color: var(--text-soft);
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    @media (max-width: 920px) {
+      header.site-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+      }
+      .nav-links {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+
+    @media (max-width: 640px) {
+      header.site-header {
+        border-radius: 16px;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+    }
+
+    /* SECTIONS */
 
     .section {
-      padding: 28px 0 16px;
-      border-top: 1px solid var(--border-subtle);
+      margin-top: 40px;
+      padding: 24px 20px 20px;
+      background: rgba(15, 23, 42, 0.88);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: var(--shadow-subtle);
     }
 
     .section-header {
@@ -190,11 +455,11 @@
     }
 
     .section-kicker {
-      font-size: 0.8rem;
+      font-size: 0.76rem;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-muted);
-      margin-bottom: 8px;
+      letter-spacing: 0.2em;
+      color: var(--text-soft);
+      margin-bottom: 6px;
     }
 
     .section-title {
@@ -203,29 +468,34 @@
     }
 
     .section-body {
-      max-width: 40rem;
-      font-size: 0.96rem;
-      line-height: 1.75;
+      font-size: 0.95rem;
+      line-height: 1.8;
       color: var(--text-muted);
+      max-width: 44rem;
     }
 
     .focus-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px 40px;
-      margin-top: 6px;
+      gap: 18px 32px;
+      margin-top: 10px;
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 780px) {
       .focus-grid {
         grid-template-columns: 1fr;
       }
     }
 
+    .focus-item {
+      padding: 12px 0 4px;
+      border-top: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
     .focus-item-title {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.16em;
       margin-bottom: 4px;
     }
 
@@ -237,12 +507,11 @@
 
     .columns-2 {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 28px;
-      margin-top: 6px;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr);
+      gap: 26px;
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 780px) {
       .columns-2 {
         grid-template-columns: 1fr;
       }
@@ -255,8 +524,8 @@
 
     .principles-list li {
       margin-bottom: 10px;
-      font-size: 0.94rem;
-      line-height: 1.6;
+      font-size: 0.9rem;
+      line-height: 1.7;
       color: var(--text-muted);
     }
 
@@ -267,34 +536,46 @@
 
     .contact-block {
       font-size: 0.95rem;
-      line-height: 1.7;
+      line-height: 1.8;
       color: var(--text-muted);
+      max-width: 40rem;
     }
 
     .contact-email {
-      display: inline-block;
-      margin-top: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
       font-size: 0.95rem;
       color: var(--accent);
       text-decoration: none;
-      border-bottom: 1px solid rgba(0,0,0,0.2);
       padding-bottom: 1px;
+      border-bottom: 1px solid rgba(56, 189, 248, 0.7);
     }
 
     .contact-email:hover {
-      border-bottom-color: var(--accent);
+      border-bottom-color: #a5f3fc;
+    }
+
+    .contact-meta {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.82rem;
+      color: var(--text-soft);
     }
 
     footer {
-      border-top: 1px solid var(--border-subtle);
       margin-top: 32px;
       padding-top: 16px;
+      border-top: 1px solid rgba(30, 64, 175, 0.7);
       font-size: 0.8rem;
-      color: var(--text-muted);
+      color: var(--text-soft);
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 8px;
+      gap: 10px;
     }
 
     footer span {
@@ -306,52 +587,97 @@
   <div class="page">
     <div class="shell">
       <header class="site-header">
-        <div class="wordmark">
-          <span class="symbol">B</span>
-          <span>B:WERTE GROUP</span>
+        <div class="brand">
+          <div class="wordmark">
+            <span class="brand-topline">Independent venture vehicle</span>
+            <div class="brand-main">
+              <span class="symbol">B:</span>
+              <span class="text">WERTE GROUP</span>
+            </div>
+          </div>
         </div>
-        <div class="nav-note">
-          Multi-sector venture & development
+        <div class="nav-links">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#focus" class="nav-link">Focus</a>
+          <a href="#approach" class="nav-link">Approach</a>
+          <a href="#contact" class="nav-link">Contact</a>
+          <div class="nav-pill">Europe &amp; beyond</div>
         </div>
       </header>
 
       <main>
         <!-- HERO -->
         <section class="hero">
-          <div>
-            <div class="hero-kicker">Private venture group</div>
+          <div class="hero-left">
+            <div class="hero-kicker">Private, multi-sector venture group</div>
             <h1 class="hero-title">
-              <span>Exploring what’s</span><br />
-              <span>next across sectors.</span>
+              A flexible vehicle<br />
+              for <span class="highlight">real-world opportunities.</span>
             </h1>
             <p class="hero-body">
-              B:WERTE is a privately led venture group used as a flexible vehicle
+              B:WERTE is a privately led venture group used as a flexible platform
               to explore, structure and support opportunities across technology,
               mobility, manufacturing, consumer products and talent.
             </p>
-            <div class="hero-pill">
-              <span>Technology &amp; digital</span>
-              <span>Mobility &amp; machines</span>
-              <span>Consumer products</span>
-              <span>Sports &amp; talent</span>
+
+            <div class="hero-tags">
+              <span class="hero-tag">Technology &amp; digital products</span>
+              <span class="hero-tag">Mobility &amp; machines</span>
+              <span class="hero-tag">Consumer goods &amp; brands</span>
+              <span class="hero-tag">Sports &amp; player pathways</span>
+              <span class="hero-tag">Cross-border trade</span>
+            </div>
+
+            <div class="hero-actions">
+              <a class="btn-primary" href="#contact">
+                Get in touch
+                <span>↗</span>
+              </a>
+              <a class="btn-ghost" href="#focus">
+                View current focus
+              </a>
             </div>
           </div>
 
-          <aside class="hero-aside">
-            <div class="aside-block">
-              <div class="aside-label">Operating model</div>
-              <p class="aside-main">
-                B:WERTE is not a traditional operating company. It functions as
-                a quiet, multi-purpose platform for conversations, diligence,
-                early collaboration and selectively structured projects.
-              </p>
-            </div>
-            <div class="aside-block">
-              <div class="aside-label">Geography</div>
-              <p class="aside-main">
-                Europe-focused, with a particular interest in Germany, the DACH
-                region and Southeast Europe, including Albania and surrounding markets.
-              </p>
+          <aside class="hero-right">
+            <div class="hero-card">
+              <div class="hero-card-inner">
+                <div class="hero-card-header">
+                  <div class="hero-chip">B:WERTE snapshot</div>
+                  <div class="hero-identity">
+                    <div class="hero-logo">B:</div>
+                    <div class="hero-identity-text">
+                      <div class="hero-identity-main">B:WERTE</div>
+                      <div class="hero-identity-sub">Independent venture group</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="hero-card-body">
+                  Not a traditional operating company. B:WERTE functions as a
+                  quiet, multi-purpose platform for conversations, diligence,
+                  early collaboration and selectively structured projects.
+                </div>
+
+                <div class="hero-metadata">
+                  <div class="hero-meta-item">
+                    <span class="hero-meta-label">Scope</span>
+                    <span class="hero-meta-value">Multi-sector</span>
+                  </div>
+                  <div class="hero-meta-item">
+                    <span class="hero-meta-label">Regions</span>
+                    <span class="hero-meta-value">DACH &amp; Southeast Europe</span>
+                  </div>
+                  <div class="hero-meta-item">
+                    <span class="hero-meta-label">Mode</span>
+                    <span class="hero-meta-value">Exploration &amp; ventures</span>
+                  </div>
+                </div>
+
+                <div class="hero-footnote">
+                  <span>Used for outreach to factories, founders, clubs and partners.</span>
+                  <span>Relationship-first. Low noise.</span>
+                </div>
+              </div>
             </div>
           </aside>
         </section>
@@ -360,13 +686,13 @@
         <section class="section" id="about">
           <div class="section-header">
             <div class="section-kicker">About</div>
-            <h2 class="section-title">A flexible vehicle for real-world opportunities.</h2>
+            <h2 class="section-title">Connecting dots across worlds that rarely meet.</h2>
           </div>
           <div class="section-body">
             B:WERTE exists to connect ideas, people and assets across domains that
-            rarely speak to each other: from factories to football, from drones to
-            digital tools. It is designed to be broad by intention – able to host
-            conversations with manufacturers, technology partners, suppliers,
+            usually operate in isolation: from factories to football, from drones
+            to digital tools. It is designed to be broad by intention – able to
+            host conversations with manufacturers, technology partners, suppliers,
             product founders and sports organisations under one consistent identity.
           </div>
         </section>
@@ -378,35 +704,36 @@
             <h2 class="section-title">Where we currently explore.</h2>
           </div>
           <div class="focus-grid">
-            <div>
+            <div class="focus-item">
               <div class="focus-item-title">Mobility &amp; machines</div>
               <p class="focus-item-text">
                 Drones, vehicles and industrial equipment for inspection, cleaning
                 and operations – from urban infrastructure to manufacturing environments.
               </p>
             </div>
-            <div>
-              <div class="focus-item-title">Manufacturing &amp; operational efficiency</div>
+            <div class="focus-item">
+              <div class="focus-item-title">Manufacturing &amp; operations</div>
               <p class="focus-item-text">
                 Food and consumer-goods production, process optimisation and
                 automation to increase reliability, quality and scale.
               </p>
             </div>
-            <div>
+            <div class="focus-item">
               <div class="focus-item-title">Technology &amp; digital products</div>
               <p class="focus-item-text">
                 Practical software, AI-supported workflows and digital tools that
                 solve concrete problems for businesses and individuals.
               </p>
             </div>
-            <div>
+            <div class="focus-item">
               <div class="focus-item-title">Sports &amp; talent</div>
               <p class="focus-item-text">
                 Football-focused initiatives around scouting, player development
-                and cross-border opportunities, with a long-term perspective.
+                and cross-border opportunities, with a long-term perspective on
+                careers and pathways.
               </p>
             </div>
-            <div>
+            <div class="focus-item">
               <div class="focus-item-title">Trade &amp; sourcing</div>
               <p class="focus-item-text">
                 Cross-border product sourcing, export and niche opportunities,
@@ -434,7 +761,7 @@
                 <li>
                   <span class="principle-label">Multi-sector by design.</span>
                   Opportunities rarely fit neatly into one industry; we prefer
-                  intersections.
+                  intersections and edges.
                 </li>
                 <li>
                   <span class="principle-label">Quiet, direct conversations.</span>
@@ -442,13 +769,13 @@
                 </li>
                 <li>
                   <span class="principle-label">Real-world bias.</span>
-                  Interest in things that can ship, move, produce, or play –
+                  Interest in things that can ship, move, produce or play –
                   not only ideas on paper.
                 </li>
                 <li>
                   <span class="principle-label">Long-term orientation.</span>
                   Willing to take time to understand people, markets and
-                  constraints before committing.
+                  constraints before committing to anything formal.
                 </li>
               </ul>
             </div>
@@ -459,7 +786,7 @@
         <section class="section" id="contact">
           <div class="section-header">
             <div class="section-kicker">Contact</div>
-            <h2 class="section-title">For partners, founders and operators.</h2>
+            <h2 class="section-title">For partners, operators and founders.</h2>
           </div>
           <div class="contact-block">
             If you are building, operating or exploring in any of the areas above and
@@ -469,6 +796,10 @@
             <a class="contact-email" href="mailto:contact@bwerte.com">
               contact@bwerte.com
             </a>
+            <div class="contact-meta">
+              <span>Based between Germany &amp; Southeast Europe.</span>
+              <span>Conversations in English, German and Albanian.</span>
+            </div>
           </div>
         </section>
       </main>
@@ -485,4 +816,3 @@
   </script>
 </body>
 </html>
-
